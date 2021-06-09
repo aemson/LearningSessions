@@ -37,4 +37,5 @@ package techSymposium
  * lazy
  * pair
  * triple
+ * typeAlias
  * *****/

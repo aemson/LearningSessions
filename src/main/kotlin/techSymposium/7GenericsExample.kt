@@ -169,7 +169,7 @@ fun main() {
  *                        A vs B  ? nope
  * foo<A> vs foo<B>
  *
- *     invariant -> myInterface<A> is neither subtype of supertype myInterface<B>
+ *     invariant -> foo<A> is neither subtype of supertype foo<B>
  *     covariant `out` ->  A is subtype of B, so foo<A> is subtype of food<B>
  *     contravariant `in` -> A is subtype of B, so foo<B> is subtype of food<A> (inverted)
  * ****/
