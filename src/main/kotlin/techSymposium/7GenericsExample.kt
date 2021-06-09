@@ -1,7 +1,5 @@
 package techSymposium
 
-import techsymposium.HelloWorld
-
 /****
  *
                _____                                 _
@@ -169,32 +167,32 @@ fun main() {
  *
  * How they relate to each other
  *                        A vs B  ? nope
- * myInterface<A> vs myInterface<B>
+ * foo<A> vs foo<B>
  *
  *     invariant -> myInterface<A> is neither subtype of supertype myInterface<B>
- *     covariant `out` ->  A is subtype of B
- *     contravariant `in` -> B is subtype of A
+ *     covariant `out` ->  A is subtype of B, so foo<A> is subtype of food<B>
+ *     contravariant `in` -> A is subtype of B, so foo<B> is subtype of food<A> (inverted)
  * ****/
 
 fun variance() {
-//    val in1 : Both<Two> = Both<One>()
-//    val in2 : Both<Two> = Both<Two>()
-//    val in3 : Both<Two> = Both<Three>()
+//    val in1 : Both<Two> = Both<One>()  // invariant
+//    val in2 : Both<Two> = Both<Two>()  // invariant
+//    val in3 : Both<Two> = Both<Three>()  // invariant
 //
-//    val covariant1 : Producer<Two>  = Producer<One>()
-//    val covariant2 : Producer<Two>  = Producer<Two>()
-//    val covariant3 : Producer<Two>  = Producer<Three>()
+//    val covariant1 : Producer<Two>  = Producer<One>()  // covariant
+//    val covariant2 : Producer<Two>  = Producer<Two>()  // covariant
+//    val covariant3 : Producer<Two>  = Producer<Three>()  // covariant
 //
-//    val contravariant1 : Consumer<Two>  = Consumer<One>()
-//    val contravariant2 : Consumer<Two>  = Consumer<Two>()
-//    val contravariant3 : Consumer<Two>  = Consumer<Three>()
+//    val contravariant1 : Consumer<Two>  = Consumer<One>() // contravariant
+//    val contravariant2 : Consumer<Two>  = Consumer<Two>() // contravariant
+//    val contravariant3 : Consumer<Two>  = Consumer<Three>() // contravariant
 }
 
 open class One
-open class Two  : One()
+open class Two : One()
 class Three : Two()
 
-class Both<T>{
+class Both<T> {
     fun both(input : T) : T{ TODO() }
 }
 
@@ -232,13 +230,15 @@ class Consumer<in T>{
                                                 |_|
  * ***/
 
-fun genericFunExamples(){
+fun genericFunExamples() {
 
     //invariant so should match types
-//    val mutableList : MutableList<Any> = mutableListOf<String>()
+//    val mutableList: MutableList<Any> = mutableListOf<String>()
 
-    val example1 : Invariant<out Number> = Invariant<Int>()
-    val example2 : Invariant<in Int> = Invariant<Number>()
+//    val example1: Invariant<Number> = Invariant<Int>()
+//    val example2: Invariant<Int> = Invariant<Number>()
+
+//    val example3: List<Any> = listOf<String>()
 }
 
 class Invariant<T>
