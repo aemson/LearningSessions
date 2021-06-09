@@ -4,17 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Service {
-    private Dbo dboObj;
-
-    public Service() {
-    }
+    private final Dbo dboObj;
 
     public Service(Dbo dboObj) {
         this.dboObj = dboObj;
     }
 
-    public String getData() {
-        return "this is service class OG output";
+    public String getData(String name) {
+        return "this is service class OG output"+ name;
     }
 
     public  List<String> getDbData() {
